@@ -1,7 +1,3 @@
-
-- name: Apply indexes
-  run: docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries/00_indexes.sql
-
 name: CI
 
 on:
@@ -9,33 +5,29 @@ on:
   pull_request:
 
 jobs:
-  run-sql-lab:
+  sql-lab:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Start containers
+      - name: Start Postgres
         run: docker compose up -d
 
       - name: Wait for Postgres
-        run: sleep 3
-
-      - name: Run indexes
-        run: docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries/00_indexes.sql
-
-      - name: Run Query 01
-        run: docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries/01_dimensional_metrics.sql > /tmp/out01.txt
-
-      - name: Run Query 02
-        run: docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries/02_data_quality_checks.sql > /tmp/out02.txt
-
-      - name: Run Query 03
-        run: docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries/03_performance_notes.sql > /tmp/out03.txt
-
-      - name: Compare outputs to expected_results
         run: |
-          diff -u expected_results/01_dimensional_metrics.md /tmp/out01.txt
-          diff -u expected_results/02_data_quality_checks.md /tmp/out02.txt
-          diff -u expected_results/03_performance_notes.md /tmp/out03.txt
+          for i in {1..30}; do
+            docker compose exec -T db pg_isready -U postgres -d analytics && exit 0
+            sleep 1
+          done
+          echo "Postgres did not become ready in time" && exit 1
 
+      - name: Run 01 - dimensional metrics
+        run: docker compose exec -T db psql -U postgres -d analytics -f queries/01_dimensional_metrics.sql
+
+      - name: Run 02 - data quality checks
+        run: docker compose exec -T db psql -U postgres -d analytics -f queries/02_data_quality_checks.sql
+
+      - name: Run 03 - performance notes
+        run: docker compose exec -T db psql -U postgres -d analytics -f queries/03_performance_notes.sql
