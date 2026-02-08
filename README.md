@@ -16,6 +16,7 @@ docker exec -it sql_analytics_lab_db psql -U postgres -d analytics -c "\dt"
 docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries\01_dimensional_metrics.sql
 docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries\02_data_quality_checks.sql
 docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries\03_performance_notes.sql
+
 Expected results
 
 See saved outputs in:
