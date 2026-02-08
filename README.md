@@ -1,3 +1,5 @@
+![CI](https://github.com/simasaadi/sql-analytics-lab/actions/workflows/ci.yml/badge.svg)
+
 # sql-analytics-lab
 
 A tiny SQL analytics lab (Postgres + Docker) with:
