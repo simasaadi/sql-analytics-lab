@@ -24,10 +24,10 @@ jobs:
           echo "Postgres did not become ready in time" && exit 1
 
       - name: Run 01 - dimensional metrics
-        run: docker compose exec -T db psql -U postgres -d analytics -f queries/01_dimensional_metrics.sql
+        run: docker compose exec -T db psql -U postgres -d analytics < queries/01_dimensional_metrics.sql
 
       - name: Run 02 - data quality checks
-        run: docker compose exec -T db psql -U postgres -d analytics -f queries/02_data_quality_checks.sql
+        run: docker compose exec -T db psql -U postgres -d analytics < queries/02_data_quality_checks.sql
 
       - name: Run 03 - performance notes
-        run: docker compose exec -T db psql -U postgres -d analytics -f queries/03_performance_notes.sql
+        run: docker compose exec -T db psql -U postgres -d analytics < queries/03_performance_notes.sql
