@@ -1,0 +1,13 @@
+customer_id,full_name,email,created_at,country
+101,Ava Chen,ava.chen@example.com,2025-01-05 09:12:00,Canada
+102,Noah Patel,noah.patel@example.com,2025-01-18 14:27:00,Canada
+103,Mia Johnson,mia.johnson@example.com,2025-02-03 08:45:00,USA
+104,Ethan Nguyen,ethan.nguyen@example.com,2025-02-10 16:02:00,Canada
+105,Sophia Martin,,2025-02-11 10:05:00,UK
+106,Liam Garcia,liam.garcia@example.com,2025-02-20 11:33:00,USA
+107,Olivia Brown,olivia.brown@example.com,2025-03-02 13:11:00,Canada
+108,Amir Hosseini,amir.hosseini@example.com,2025-03-04 09:50:00,Canada
+109,Emma Wilson,emma.wilson@example.com,2025-03-10 12:20:00,Australia
+110,Lucas Dubois,lucas.dubois@example.com,2025-03-12 15:44:00,France
+111,Charlotte Lee,charlotte.lee@example.com,2025-03-15 08:09:00,Canada
+112,Henry Taylor,henry.taylor@example.com,2025-03-18 18:31:00,USA

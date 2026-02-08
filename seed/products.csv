@@ -1,0 +1,13 @@
+product_id,product_name,category,unit_price,is_active
+201,Cold Brew Coffee,beverage,4.50,true
+202,Matcha Latte,beverage,5.25,true
+203,Chocolate Bar,snack,2.15,true
+204,Protein Bar,snack,3.75,true
+205,Notebook A5,stationery,6.00,true
+206,Gel Pen 0.5mm,stationery,1.80,true
+207,Desk Lamp,home,24.99,true
+208,Water Bottle 1L,home,12.50,true
+209,Wireless Mouse,electronics,19.99,true
+210,USB-C Cable 1m,electronics,8.99,true
+211,Seasonal Gift Box,home,29.00,false
+212,Sticker Pack,stationery,0.99,true

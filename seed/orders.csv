@@ -1,0 +1,15 @@
+order_id,customer_id,order_ts,order_status,channel
+3001,101,2025-03-20 09:05:00,completed,web
+3002,102,2025-03-20 10:14:00,completed,web
+3003,103,2025-03-20 10:40:00,cancelled,mobile
+3004,104,2025-03-21 08:22:00,completed,mobile
+3005,105,2025-03-21 09:10:00,completed,web
+3006,106,2025-03-21 12:01:00,completed,web
+3007,107,2025-03-22 15:33:00,refunded,mobile
+3008,108,2025-03-23 11:18:00,completed,web
+3009,109,2025-03-24 17:45:00,completed,mobile
+3010,110,2025-03-24 18:02:00,completed,web
+3011,111,2025-03-25 09:55:00,completed,web
+3012,112,2025-03-25 13:20:00,completed,mobile
+3013,101,2025-03-26 07:41:00,completed,mobile
+3014,104,2025-03-26 19:05:00,completed,web
