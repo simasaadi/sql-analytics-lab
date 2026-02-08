@@ -1,3 +1,7 @@
+
+- name: Apply indexes
+  run: docker exec -i sql_analytics_lab_db psql -U postgres -d analytics < queries/00_indexes.sql
+
 name: CI
 
 on:
