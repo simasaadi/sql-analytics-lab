@@ -25,11 +25,5 @@ jobs:
       - name: Apply indexes
         run: docker compose exec -T db psql -U postgres -d analytics < queries/00_indexes.sql
 
-      - name: Run 01 - dimensional metrics
-        run: docker compose exec -T db psql -U postgres -d analytics < queries/01_dimensional_metrics.sql
-
-      - name: Run 02 - data quality checks
-        run: docker compose exec -T db psql -U postgres -d analytics < queries/02_data_quality_checks.sql
-
-      - name: Run 03 - performance notes
-        run: docker compose exec -T db psql -U postgres -d analytics < queries/03_performance_notes.sql
+       - name: Run full suite
+        run: bash scripts/run_all.sh
