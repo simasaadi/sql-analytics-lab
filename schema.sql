@@ -44,3 +44,12 @@ CREATE TABLE fct_payment (
   payment_method TEXT NOT NULL,
   payment_status TEXT NOT NULL
 );
+
+-- Data quality results table (operational-style logging)
+CREATE TABLE IF NOT EXISTS dq_results (
+  dq_check_name TEXT PRIMARY KEY,
+  status        TEXT NOT NULL CHECK (status IN ('PASS', 'FAIL')),
+  failed_rows   INTEGER NOT NULL,
+  run_ts        TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
