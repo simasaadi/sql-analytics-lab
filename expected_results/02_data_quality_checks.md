@@ -182,5 +182,20 @@ order\_id | items\_gross | paid\_amount | paid\_minus\_items
 
 (14 rows)
 
+# 02 — Data quality checks (dq_results)
+
+This query logs standardized PASS/FAIL outcomes into `dq_results`, then prints the latest status.
+
+Example output:
+
+| dq_check_name                 | status | failed_rows | run_ts                  |
+|------------------------------|--------|-------------|-------------------------|
+| check_01__pk_not_null        | PASS   | 0           | 2026-02-08 18:12:10+00  |
+| check_02__no_orphan_fk       | PASS   | 0           | 2026-02-08 18:12:10+00  |
+| check_03__no_negative_amount | FAIL   | 2           | 2026-02-08 18:12:10+00  |
+
+Interpretation:
+- `failed_rows = 0` means PASS.
+- Any non-zero count is FAIL and should be investigated.
 
 
