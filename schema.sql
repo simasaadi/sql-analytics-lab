@@ -47,12 +47,14 @@ CREATE TABLE fct_payment (
 
 
 
--- Data Quality Results (standardized output table)
+
+-- Data Quality results table (PASS/FAIL per check, per run)
 CREATE TABLE IF NOT EXISTS dq_results (
-  dq_check_name TEXT PRIMARY KEY,
-  status        TEXT NOT NULL CHECK (status IN ('PASS','FAIL')),
+  dq_check_name TEXT NOT NULL,
+  status        TEXT NOT NULL CHECK (status IN ('PASS', 'FAIL')),
   failed_rows   INT  NOT NULL,
-  run_ts        TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  run_ts        TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
+CREATE INDEX IF NOT EXISTS idx_dq_results_run_ts ON dq_results (run_ts DESC);
 
