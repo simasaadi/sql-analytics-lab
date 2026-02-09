@@ -22,6 +22,8 @@ jobs:
             sleep 1
           done
           echo "Postgres did not become ready in time" && exit 1
+      - name: Apply indexes
+        run: docker compose exec -T db psql -U postgres -d analytics < queries/00_indexes.sql
 
       - name: Run 01 - dimensional metrics
         run: docker compose exec -T db psql -U postgres -d analytics < queries/01_dimensional_metrics.sql
