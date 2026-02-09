@@ -199,3 +199,15 @@ Interpretation:
 - Any non-zero count is FAIL and should be investigated.
 
 
+
+
+## Latest DQ run (sample)
+
+| dq_check_name                           | status | failed_rows |
+|-----------------------------------------|--------|------------:|
+| fct_order__missing_order_id             | PASS   |           0 |
+| fct_order_item__non_positive_quantity   | FAIL   |           2 |
+| recon__payments_minus_items_not_zero    | FAIL   |           5 |
+
+
+
